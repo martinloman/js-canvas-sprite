@@ -62,15 +62,16 @@
       // Ritar den frame som är på frameIndex med skalan i scale
       ctx.drawImage(
         spriteSheet,
-        frameIndex * spriteWidth,
-        0,
+        frameIndex * spriteWidth, // Beräknar framens x-koordinat
+        0, // Framens y-koordinat är alltid 0
         spriteWidth,
         spriteHeight,
-        0,
-        0,
+        0, // Ritar på x-koordinat 0 på canvas
+        0, // Ritar på y-koordinat 0 på canvas
         spriteWidth * scale,
         spriteHeight * scale
       )
+
       // Se till att frameIndex inte blir högre än antalet frames. Börja om på frame 0.
       frameIndex = (frameIndex + 1) % totalFrames
       requestAnimationFrame(draw)
