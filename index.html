@@ -35,6 +35,7 @@
 
     // frameIndex håller reda på vilken frame som ska ritas.
     let frameIndex = 0
+    //totalFrames är hur många frames animationen är, det kan variera mellan olika animationer
     const totalFrames = 8
 
     const scale = 4
@@ -48,7 +49,7 @@
      * timestamp är en inparameter som skickas in i funktionen av requestAnimationFrame()
      */
     function draw(timestamp) {
-      // if-sats för "throttling". För att det inte ska bli för hög FPS
+      //if-sats för "throttling". För att det inte ska bli för hög FPS
       if (timestamp - lastTimestamp < timestep) {
         // Vi ska vänta med att rita så vi avbryter funktionen.
         requestAnimationFrame(draw)
@@ -72,7 +73,7 @@
         spriteHeight * scale
       )
 
-      // Se till att frameIndex inte blir högre än antalet frames. Börja om på frame 0.
+      // Se till att frameIndex inte blir högre än antalet frames. Börja om på frame 0 i så fall.
       frameIndex = (frameIndex + 1) % totalFrames
       requestAnimationFrame(draw)
     }
